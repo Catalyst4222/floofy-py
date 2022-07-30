@@ -3,7 +3,15 @@ import re
 from random import choice
 from typing import Optional
 
-from naff import Extension, prefixed_command, PrefixedContext, listen, AllowedMentions, Message, Member
+from naff import (
+    Extension,
+    prefixed_command,
+    PrefixedContext,
+    listen,
+    AllowedMentions,
+    Message,
+    Member,
+)
 from naff.api.events import MessageCreate
 
 from core.base import FloofyClient
@@ -18,7 +26,9 @@ class Fun(Extension):
     @prefixed_command(name="davo", aliases=["david"])
     async def davo_command(self, ctx: PrefixedContext) -> None:
         name = ctx.message.author.display_name
-        await ctx.send(f"> **{name}** totally, completely denies that they're a furry! >.<")
+        await ctx.send(
+            f"> **{name}** totally, completely denies that they're a furry! >.<"
+        )
 
     @listen()
     async def on_message_create(self, event: MessageCreate) -> None:
@@ -60,11 +70,12 @@ class Fun(Extension):
         # Send the message
         await msg.channel.send(
             f"> **{user}** {formatted_reply} {action_emoji}",
-            allowed_mentions=AllowedMentions.none()
+            allowed_mentions=AllowedMentions.none(),
         )
 
     @staticmethod
     def _get_receivers(msg: Message, content: Optional[str] = None) -> Optional[str]:
+        # sourcery skip: assign-if-exp
         if content is None:
             content = msg.content
 

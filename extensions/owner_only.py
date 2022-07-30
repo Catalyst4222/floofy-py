@@ -2,8 +2,18 @@ import asyncio
 import datetime
 
 import naff
-from naff import Embed, InteractionContext, slash_command, slash_option, OptionTypes, Button, Message, Timestamp, \
-    Context, Extension
+from naff import (
+    Embed,
+    InteractionContext,
+    slash_command,
+    slash_option,
+    OptionTypes,
+    Button,
+    Message,
+    Timestamp,
+    Context,
+    Extension,
+)
 
 from core.base import FloofyClient
 from core.extensions_loader import reload_all_extensions
@@ -20,8 +30,7 @@ class OwnerOnly(Extension):
         return ctx.bot.owner.id == ctx.author.id
 
     @slash_command(
-        name="botstatus",
-        description="OWNER ONLY | Check the status of the bot"
+        name="botstatus", description="OWNER ONLY | Check the status of the bot"
     )
     async def bot_status(self, ctx: InteractionContext):
         now = datetime.datetime.now()
@@ -39,52 +48,38 @@ class OwnerOnly(Extension):
             description=f"Current status of the bot is: **{ctx.bot.status.value}**",
             color=embed_colors["main_color"],
             timestamp=now,
-            thumbnail=ctx.bot.user.avatar.url
+            thumbnail=ctx.bot.user.avatar.url,
         )
 
         # Add fields for the status data
         status_embed.add_field(
-            name="Servers",
-            value=f"{guild_count} {guild_text}",
-            inline=True
+            name="Servers", value=f"{guild_count} {guild_text}", inline=True
         )
-        status_embed.add_field(
-            name="Members",
-            value=f"Who knows?",
-            inline=True
-        )
+        status_embed.add_field(name="Members", value="Who knows?", inline=True)
         status_embed.add_field(
             name="Startup Time",
             value=f"<t:{int(socket_created.timestamp())}:f>",
-            inline=True
+            inline=True,
+        )
+        status_embed.add_field(name="Uptime", value=f"{str(uptime)[:-4]}", inline=True)
+        status_embed.add_field(
+            name="Avg. Latency", value=f"{latency:,.2f}ms", inline=True
         )
         status_embed.add_field(
-            name="Uptime",
-            value=f"{str(uptime)[:-4]}",
-            inline=True
-        )
-        status_embed.add_field(
-            name="Avg. Latency",
-            value=f"{latency:,.2f}ms",
-            inline=True
-        )
-        status_embed.add_field(
-            name="Version Info",
-            value=f"naff@{naff.__version__}",
-            inline=True
+            name="Version Info", value=f"naff@{naff.__version__}", inline=True
         )
 
         await ctx.send(embed=status_embed)
 
     @slash_command(
         name="generateinvite",
-        description="OWNER ONLY | Generate an invite link for the bot"
+        description="OWNER ONLY | Generate an invite link for the bot",
     )
     @slash_option(
         name="admin_perms",
         description="If the bot should have administration permissions or not",
         opt_type=OptionTypes.BOOLEAN,
-        required=False
+        required=False,
     )
     async def generate_invite(self, ctx: InteractionContext, admin_perms: bool = False):
         permissions = "8" if admin_perms else "412317173824"
@@ -93,45 +88,41 @@ class OwnerOnly(Extension):
         client_id = self.bot.app.id
         full_url = f"{base_url}?client_id={client_id}&permissions={permissions}&scope=bot%20applications.commands"
 
-        invite_button = Button(
-            label="Invite",
-            style=5,
-            url=full_url
-        )
+        invite_button = Button(label="Invite", style=5, url=full_url)
 
         embed = Embed(
             title="Invite me to your server!",
             description=f"Click the button below to invite me to your server with `{embed_perm_string}` permissions.",
-            color=embed_colors["main_color"]
+            color=embed_colors["main_color"],
         )
 
         await ctx.send(embed=embed, components=[invite_button])
 
-    @slash_command(
-        name="shutdown",
-        description="OWNER ONLY | Shuts the bot down."
-    )
+    @slash_command(name="shutdown", description="OWNER ONLY | Shuts the bot down.")
     async def shutdown(self, ctx: InteractionContext):
         shutdown_timestamp = datetime.datetime.now() + datetime.timedelta(seconds=15)
-        shutdown_message = await ctx.send(f"**Floofy** is shutting down <t:{int(shutdown_timestamp.timestamp())}:R>")
+        shutdown_message = await ctx.send(
+            f"**Floofy** is shutting down <t:{int(shutdown_timestamp.timestamp())}:R>"
+        )
 
         await asyncio.sleep(15)
         await shutdown_message.delete()
         await self.bot.stop()
 
     @slash_command(
-        name="reload",
-        description="OWNER ONLY | Reload the bot's extensions"
+        name="reload", description="OWNER ONLY | Reload the bot's extensions"
     )
     @slash_option(
         name="extension_name",
         description="Name of the extension to reload. Leave blank to reload all extensions",
         opt_type=OptionTypes.STRING,
-        required=False
+        required=False,
     )
     async def reload(self, ctx: InteractionContext, extension_name: str = "none"):
         if extension_name == "none":
-            all_ext_reload_msg = await ctx.send("Reloading all extensions, please hold...")
+            all_ext_reload_msg = await ctx.send(
+                "Reloading all extensions, please hold..."
+            )
 
             reload_all_extensions(self.bot)
 
@@ -139,7 +130,9 @@ class OwnerOnly(Extension):
             await all_ext_reload_msg.delete(10)
             return
 
-        ext_reload_msg = await ctx.send(f"Reloading extension **{extension_name}**, please hold...")
+        ext_reload_msg = await ctx.send(
+            f"Reloading extension **{extension_name}**, please hold..."
+        )
         path_to_reload = f"extensions.{extension_name}"
 
         try:

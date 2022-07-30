@@ -9,8 +9,8 @@ actions = {
             "gently boops {receivers} on their snoot",
             "boops {receivers} on the snoot!",
             "approaches {receivers} and gives them a big boop!",
-            "walks towards {receivers}, waits a sec, and boops them!"
-        ]
+            "walks towards {receivers}, waits a sec, and boops them!",
+        ],
     },
     "pat": {
         "self": "reaches over and pets themselves!",
@@ -22,8 +22,8 @@ actions = {
             "gives a couple of quick pets to {receivers}",
             "pets {receivers}!",
             "walks towards {receivers} and gives them some pets!",
-            "approaches {receivers} and pets them!"
-        ]
+            "approaches {receivers} and pets them!",
+        ],
     },
     "hug": {
         "self": "hugs a warm, soft pillow!",
@@ -34,8 +34,8 @@ actions = {
             "warms up to {receivers} and gives them a big hug",
             "spreads their arms and locks {receivers} in a cozy hug!",
             "embraces {receivers} in a warm, cozy hug!",
-            "walks towards {receivers} and hugs them!"
-        ]
+            "walks towards {receivers} and hugs them!",
+        ],
     },
     "nuzzle": {
         "self": "nuzzles a soft plushie!",
@@ -46,8 +46,8 @@ actions = {
             "sneakily nuzzles {receivers}",
             "gets their nose up close to {receivers} and nuzzles them!",
             "goes towards {receivers} and gives them a big nuzzle!",
-            "shyly nuzzles {receivers}! Awwww~"
-        ]
+            "shyly nuzzles {receivers}! Awwww~",
+        ],
     },
     "kiss": {
         "self": "kisses them- wait a minute! That's impossible!",
@@ -59,8 +59,8 @@ actions = {
             "gives multiple kisses to {receivers}!",
             "shyly walks towards {receivers} and kisses them!",
             "taps {receivers} on the shoulder and kisses them!",
-            "holds {receivers} arm and their head, time for a kiss~"
-        ]
+            "holds {receivers} arm and their head, time for a kiss~",
+        ],
     },
     "food": {
         "self": "eats all the delicious food themselves! Oh no!",
@@ -75,8 +75,8 @@ actions = {
             "bakes a big :cake: for {receivers}!",
             "shares some :cookie: with {receivers}! So generous!",
             "cooks some fine :cut_of_meat: for {receivers}! What a chef~",
-            "offers a cucumber to {receivers}? Might as well enjoy it before it goes bad ;3"
-        ]
+            "offers a cucumber to {receivers}? Might as well enjoy it before it goes bad ;3",
+        ],
     },
     "bonk": {
         "self": "bonks themselves! Such a klutz~",
@@ -86,8 +86,8 @@ actions = {
             "gives {receivers} a big bonk on the head!",
             "walks up to {receivers} and bonks them!",
             "sneakily bonks {receivers}! Ouchies!",
-            "bonks {receivers} using Scout's bat! Where did they get that from?"
-        ]
+            "bonks {receivers} using Scout's bat! Where did they get that from?",
+        ],
     },
     "slap": {
         "self": "slaps themselves across the face! Ouchies!",
@@ -100,8 +100,8 @@ actions = {
             "whacks {receivers} on the face! Ouchies!",
             "slaps {receivers} leaving a big red mark! Ow!",
             "gives {receivers} a real good slappin'!",
-            "gives a good 'ol smacc to {receivers}!"
-        ]
+            "gives a good 'ol smacc to {receivers}!",
+        ],
     },
     "bite": {
         "self": "bites their own arm! Ouchies!",
@@ -115,8 +115,8 @@ actions = {
             "taps {receivers} on the shoulder and nibbles them!",
             "gives {receivers} a big monch!",
             "runs towards {receivers} and bites them!",
-            "softly bites {receivers}"
-        ]
+            "softly bites {receivers}",
+        ],
     },
     "snuggle": {
         "self": "snuggles a soft, warm pillow! Awwwww~",
@@ -127,8 +127,8 @@ actions = {
             "gets close to {receivers} and gives them a big, warm snuggle~",
             "walks towards {receivers} and snuggles them tight!",
             "shyly snuggles {receivers}, so soft!",
-            "envelops {receivers} in their floof and snuggles them!"
-        ]
+            "envelops {receivers} in their floof and snuggles them!",
+        ],
     },
     "bellyrub": {
         "self": "rubs their own belly! Someone's hungy~",
@@ -137,8 +137,8 @@ actions = {
             "sofly rubs {receivers} belly~",
             "rubs {receivers} belly",
             "sneakily walks towards {receivers} and rubs their belly!",
-            "shyly pats {receivers} on the shoulder and rubs their belly~"
-        ]
+            "shyly pats {receivers} on the shoulder and rubs their belly~",
+        ],
     },
     "cuddle": {
         "self": "embraces themselves in a warm cuddle~",
@@ -149,8 +149,8 @@ actions = {
             "softly cuddles {receivers}",
             "pokes {receivers} on the shoulder and cuddles them~",
             "locks {receivers} in a tight, warm cuddle~ So soft!",
-            "grabs {receivers} and tightly cuddles them!"
-        ]
+            "grabs {receivers} and tightly cuddles them!",
+        ],
     },
     "nibble": {
         "self": "nibbles their own arm! Owie!",
@@ -162,9 +162,9 @@ actions = {
             "walks towards {receivers} and softly nibbles them",
             "nibbles {receivers}!",
             "looks at {receivers} and nibbles them!",
-            "walks behind {receivers} and nibbles on their tail~"
-        ]
-    }
+            "walks behind {receivers} and nibbles on their tail~",
+        ],
+    },
 }
 
 # Aliases

@@ -6,6 +6,7 @@ from naff import Client, listen, logger_name
 
 class FloofyClient(Client):
     """Subclass of naff.Client with our own logger and on_startup event"""
+
     logger = logging.getLogger(logger_name)
 
     @listen()

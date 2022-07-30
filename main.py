@@ -22,7 +22,7 @@ bot = FloofyClient(
     auto_defer=True,
     status=Status.ONLINE,
     activity=choice(statuses),
-    default_prefix=("f.", "F.", "f!", "F!")
+    default_prefix=("f.", "F.", "f!", "F!"),
 )
 
 # Load the debug extension if that is wanted
