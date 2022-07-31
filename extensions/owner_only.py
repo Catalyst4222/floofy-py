@@ -3,25 +3,23 @@ import datetime
 
 import naff
 from naff import (
+    Button,
+    Client,
+    Context,
     Embed,
+    Extension,
     InteractionContext,
+    OptionTypes,
     slash_command,
     slash_option,
-    OptionTypes,
-    Button,
-    Message,
-    Timestamp,
-    Context,
-    Extension,
 )
 
-from core.base import FloofyClient
-from core.extensions_loader import reload_all_extensions
 from static.constants import embed_colors
+from utils.extensions_loader import reload_all_extensions
 
 
 class OwnerOnly(Extension):
-    def __init__(self, bot: FloofyClient):
+    def __init__(self, bot: Client):
         self.bot = bot
         self.add_ext_check(self.owner_check)
 
@@ -145,5 +143,5 @@ class OwnerOnly(Extension):
         await ext_reload_msg.delete(10)
 
 
-def setup(bot: FloofyClient):
+def setup(bot: Client):
     OwnerOnly(bot)

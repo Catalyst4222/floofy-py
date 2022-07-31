@@ -1,29 +1,30 @@
 import datetime
+import logging
 from random import choice
 
 from naff import (
-    Extension,
-    slash_command,
-    InteractionContext,
-    Embed,
-    cooldown,
-    Buckets,
-    Task,
-    IntervalTrigger,
-    Status,
     Activity,
     ActivityType,
+    Buckets,
+    Client,
+    Embed,
+    Extension,
+    InteractionContext,
+    IntervalTrigger,
+    Status,
+    Task,
+    cooldown,
     listen,
+    slash_command,
 )
 
-from core.base import FloofyClient
 from static.actions import actions
 from static.constants import embed_colors, statuses
 
+logger = logging.getLogger("floofy.owner")
+
 
 class Utility(Extension):
-    bot: FloofyClient
-
     @slash_command(
         name="ping", description="UTILITY | Checks the bot's latency to the Discord API"
     )
@@ -77,8 +78,9 @@ class Utility(Extension):
         self.change_status.start()
 
         # Log to the console that we've started the task
-        self.bot.logger.info("Started status change task!")
+        logger.info("Started status change task!")
+        print("aaaaa")
 
 
-def setup(bot: FloofyClient):
+def setup(bot: Client):
     Utility(bot)

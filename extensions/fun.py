@@ -1,28 +1,26 @@
+import logging
 import re
-
 from random import choice
 from typing import Optional
 
 from naff import (
+    AllowedMentions,
+    Client,
     Extension,
-    prefixed_command,
+    Member,
+    Message,
     PrefixedContext,
     listen,
-    AllowedMentions,
-    Message,
-    Member,
+    prefixed_command,
 )
 from naff.api.events import MessageCreate
 
-from core.base import FloofyClient
 from static.actions import actions
 
 MENTION_REGEX = re.compile(r"(<@!?(\d{17,19})>)")
 
 
 class Fun(Extension):
-    bot: FloofyClient
-
     @prefixed_command(name="davo", aliases=["david"])
     async def davo_command(self, ctx: PrefixedContext) -> None:
         name = ctx.message.author.display_name
@@ -110,5 +108,8 @@ class Fun(Extension):
         return mention_string
 
 
-def setup(bot: FloofyClient):
+logging.ERROR
+
+
+def setup(bot: Client):
     Fun(bot)
