@@ -79,7 +79,6 @@ class Utility(Extension):
 
         # Log to the console that we've started the task
         logger.info("Started status change task!")
-        print("aaaaa")
 
 
 def setup(bot: Client):
